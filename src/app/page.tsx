@@ -131,7 +131,7 @@ export default function Home() {
               
               <div className="flex items-center justify-center gap-3">
                 <div className="h-px w-16 bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
-                <span className="font-sans text-accent text-sm tracking-widest">CHAPTER ONE</span>
+                <span className="font-sans text-accent text-sm tracking-widest">THE JOURNEY</span>
                 <div className="h-px w-16 bg-gradient-to-l from-transparent via-accent/50 to-transparent" />
               </div>
             </div>
@@ -185,7 +185,7 @@ export default function Home() {
                   
                   <div className="relative space-y-6 pl-4 lg:pl-8">
                     <p className="font-sans text-xl md:text-2xl leading-relaxed text-muted">
-                      From the moment we met, we knew there was something special. Every laugh, every adventure, and every quiet moment has led us here — ready to say &quot;I do&quot; and start our greatest chapter together.
+                      From the moment we met, we knew there was something special. Every laugh, every adventure, and every quiet moment has led us here - ready to say &quot;I do&quot; and start our greatest chapter together.
                     </p>
                     
                     <p className="font-sans text-lg leading-relaxed text-muted/90">
@@ -320,123 +320,139 @@ export default function Home() {
 
       {/* Footer - matches site dark theme */}
       <footer className="relative overflow-hidden border-t border-accent/20 bg-section-alt">
-        {/* Floating decorative shapes */}
-        <div className="absolute bottom-32 left-32 w-24 h-24 bg-accent/10 rounded-full blur-2xl" />
-        <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-accent/40 rounded-full" />
-        <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-accent/40 rounded-full" />
-        {/* Circle with couple photo */}
-        <div className="absolute top-20 right-20 w-40 h-40 overflow-hidden rounded-full border-2 border-accent/30 shadow-xl">
-          <Image
-            src="/M4_05906.jpeg"
-            alt="Saurabh & Disha"
-            width={160}
-            height={160}
-            className="h-full w-full object-cover"
-          />
-        </div>
+  {/* Floating decorative shapes */}
+  <div className="absolute bottom-32 left-32 w-24 h-24 bg-accent/10 rounded-full blur-2xl" />
+  <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-accent/40 rounded-full" />
+  <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-accent/40 rounded-full" />
+
+  {/* Circle with couple photo */}
+  <div className="absolute top-20 right-1/2 translate-x-1/2 lg:right-20 lg:translate-x-0 w-32 h-32 lg:w-40 lg:h-40 overflow-hidden rounded-full border-2 border-accent/30 shadow-xl">
+    <Image
+      src="/M4_05906.jpeg"
+      alt="Saurabh & Disha"
+      width={160}
+      height={160}
+      className="h-full w-full object-cover"
+    />
+  </div>
+
+  <div className="max-w-7xl mx-auto px-6 py-24">
+    {/* Main asymmetric content */}
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+      
+      {/* Left: Large brand section */}
+      <div className="lg:col-span-7 space-y-10 text-center lg:text-left flex flex-col items-center lg:items-start">
         
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          {/* Main asymmetric content */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
-            {/* Left: Large brand section */}
-            <div className="lg:col-span-7 space-y-10">
-              {/* Logo */}
-              <a href="#hero" className="inline-block">
-                <Image 
-                  src="/logo.png" 
-                  alt="Saurabh & Disha" 
-                  width={200} 
-                  height={100} 
-                  className="h-20 w-auto object-contain sm:h-24" 
-                />
-              </a>
+        {/* Logo */}
+        <a href="#hero" className="inline-block">
+          <Image 
+            src="/logo.png" 
+            alt="Saurabh & Disha" 
+            width={200} 
+            height={100} 
+            className="h-20 w-auto object-contain sm:h-24" 
+          />
+        </a>
 
-              {/* Names with decorative line */}
-              <div className="space-y-6">
-                <div className="flex items-end gap-4">
-                  <div className="space-y-2">
-                    <h3 className="font-display text-5xl lg:text-6xl text-foreground leading-none">
-                      Saurabh
-                    </h3>
-                    <div className="flex items-center gap-3">
-                      <div className="h-0.5 w-12 bg-accent" />
-                      <span className="font-display text-3xl text-accent">&</span>
-                      <div className="h-0.5 w-12 bg-accent" />
-                    </div>
-                    <h3 className="font-display text-5xl lg:text-6xl text-foreground leading-none">
-                      Disha
-                    </h3>
-                  </div>
-                </div>
-                
-                <p className="text-accent text-base tracking-[0.25em] font-medium">
-                  #SaurabhKiDisha
-                </p>
+        {/* Names with decorative line */}
+        <div className="space-y-6">
+          <div className="flex items-end gap-4 justify-center lg:justify-start">
+            <div className="space-y-2">
+              <h3 className="font-display text-5xl lg:text-6xl text-foreground leading-none">
+                Saurabh
+              </h3>
+
+              <div className="flex items-center gap-3 justify-center lg:justify-start">
+                <div className="h-0.5 w-12 bg-accent" />
+                <span className="font-display text-3xl text-accent">&</span>
+                <div className="h-0.5 w-12 bg-accent" />
               </div>
 
-              {/* Message in artistic box */}
-              <div className="relative max-w-lg">
-                <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-accent/40" />
-                <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-accent/40" />
-                <div className="px-8 py-10 space-y-4">
-                  <p className="text-muted leading-relaxed">
-                    Thank you for being part of our journey. Your love and blessings mean everything to us as we step into this beautiful new chapter together.
-                  </p>
-                  <div className="flex items-center gap-3 pt-4">
-                    <div className="flex-1 h-px bg-gradient-to-r from-accent/50 to-transparent" />
-                    <p className="font-display text-lg text-foreground italic">With gratitude</p>
-                  </div>
-                </div>
-              </div>
+              <h3 className="font-display text-5xl lg:text-6xl text-foreground leading-none">
+                Disha
+              </h3>
             </div>
+          </div>
 
-            {/* Right: Compact links and info */}
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-12">
-              {/* Navigation in columns */}
-              <div className="space-y-6">
-                <h4 className="text-xs tracking-[0.3em] uppercase text-accent font-semibold">
-                  Quick Links
-                </h4>
-                <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-                  <a href="#hero" className="footer-link">Home</a>
-                  <a href="#story" className="footer-link">Our Story</a>
-                  <a href="#gallery" className="footer-link">Photos</a>
-                  <a href="#videos" className="footer-link">Videos</a>
-                  <a href="#wedding" className="footer-link">Wedding</a>
-                </div>
-              </div>
+          <p className="text-accent text-base tracking-[0.25em] font-medium">
+            #SaurabhKiDisha
+          </p>
+        </div>
 
-              {/* Event info card - Save the Date */}
-              <div className="rounded-2xl p-6 border border-accent backdrop-blur-sm space-y-3 shadow-sm">
-                <div className="flex items-center gap-2 text-accent">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                  </svg>
-                  <span className="text-xs tracking-widest uppercase font-medium">Save the Date</span>
-                </div>
-                <p className="font-display text-2xl text-foreground">February 10, 2026</p>
-                <p className="text-sm text-muted">Club Mahindra Resort, Udaipur</p>
-              </div>
-
-              {/* Creator signature style */}
-              <div className="space-y-3">
-                <div className="h-px bg-gradient-to-r from-accent/30 to-transparent" />
-                <div className="flex items-baseline gap-2">
-                  <span className="text-xs text-muted">Designed by</span>
-                  <a
-                    href="https://yashpokharna.in/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-display text-lg text-foreground hover:text-accent transition-colors underline decoration-accent/30 decoration-2 underline-offset-4 hover:decoration-accent"
-                  >
-                    Yash Pokharna
-                  </a>
-                </div>
-              </div>
+        {/* Message in artistic box */}
+        <div className="relative max-w-lg mx-auto lg:mx-0">
+          <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-accent/40" />
+          <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-accent/40" />
+          <div className="px-8 py-10 space-y-4">
+            <p className="text-muted leading-relaxed">
+              Thank you for being part of our journey. Your love and blessings mean everything to us as we step into this beautiful new chapter together.
+            </p>
+            <div className="flex items-center gap-3 pt-4">
+              <div className="flex-1 h-px bg-gradient-to-r from-accent/50 to-transparent" />
+              <p className="font-display text-lg text-foreground italic">
+                With gratitude
+              </p>
             </div>
           </div>
         </div>
-      </footer>
+      </div>
+
+      {/* Right: Compact links and info */}
+      <div className="lg:col-span-5 flex flex-col justify-between space-y-12 text-center lg:text-left items-center lg:items-start">
+        
+        {/* Navigation */}
+        <div className="space-y-6">
+          <h4 className="text-xs tracking-[0.3em] uppercase text-accent font-semibold">
+            Quick Links
+          </h4>
+          <div className="grid grid-cols-2 gap-x-8 gap-y-3 justify-items-center lg:justify-items-start">
+            <a href="#hero" className="footer-link">Home</a>
+            <a href="#story" className="footer-link">Our Story</a>
+            <a href="#gallery" className="footer-link">Photos</a>
+            <a href="#videos" className="footer-link">Videos</a>
+            <a href="#wedding" className="footer-link">Wedding</a>
+          </div>
+        </div>
+
+        {/* Event info card */}
+        <div className="rounded-2xl p-6 border border-accent backdrop-blur-sm space-y-3 shadow-sm">
+          <div className="flex items-center gap-2 text-accent justify-center lg:justify-start">
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+            </svg>
+            <span className="text-xs tracking-widest uppercase font-medium">
+              Save the Date
+            </span>
+          </div>
+          <p className="font-display text-2xl text-foreground">
+            February 10, 2026
+          </p>
+          <p className="text-sm text-muted">
+            Club Mahindra Resort, Udaipur
+          </p>
+        </div>
+
+        {/* Creator signature */}
+        <div className="space-y-3 w-full">
+          <div className="h-px bg-gradient-to-r from-accent/30 to-transparent" />
+          <div className="flex items-baseline gap-2 justify-center lg:justify-start">
+            <span className="text-xs text-muted">Designed by</span>
+            <a
+              href="https://yashpokharna.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-display text-lg text-foreground hover:text-accent transition-colors underline decoration-accent/30 decoration-2 underline-offset-4 hover:decoration-accent"
+            >
+              Yash Pokharna
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
     </div>
   );
 }
