@@ -1,6 +1,8 @@
 import Image from "next/image";
 import AutoplayVideo from "./components/AutoplayVideo";
 import CountdownTimer from "./components/CountdownTimer";
+import AnimateOnScroll from "./components/AnimateOnScroll";
+import PhotoGallerySlider from "./components/PhotoGallerySlider";
 
 export default function Home() {
   return (
@@ -19,7 +21,7 @@ export default function Home() {
       </nav>
 
       {/* Hero - Redesigned */}
-      <section id="hero" className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-16 pb-20">
+      <section id="hero" className="relative flex min-h-screen flex-col items-center justify-start overflow-hidden px-6 pt-24 pb-20">
         {/* Background layers */}
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_50%_at_50%_20%,var(--tw-gradient-stops))] from-accent/15 via-accent/5 to-transparent" />
         <div className="absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl" />
@@ -52,7 +54,8 @@ export default function Home() {
         </div>
 
         {/* Main content with decorative frame */}
-        <div className="relative flex max-w-2xl flex-col items-center text-center">
+        <AnimateOnScroll animation="fadeUp" duration={1.2} immediate>
+        <div className="relative flex max-w-2xl flex-col items-center text-center mt-6 md:mt-6">
           <div className="absolute -inset-4 rounded-3xl border border-accent/10 pointer-events-none" />
           <div className="absolute -inset-8 rounded-4xl border border-accent/5 pointer-events-none" />
 
@@ -94,36 +97,50 @@ export default function Home() {
               Wedding Details
             </a>
           </div>
-        </div>
 
-        {/* Scroll indicator */}
-        <a
-          href="#story"
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted/70 hover:text-accent transition-colors"
-        >
-          <span className="text-xs font-medium tracking-widest uppercase">Scroll</span>
-          <svg className="w-5 h-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </a>
+          {/* Countdown - in flow below buttons */}
+          <div className="mt-12 pt-8 border-t border-accent/20 w-full max-w-xl">
+            <p className="font-sans mb-2 text-center text-xs font-medium uppercase tracking-wider text-accent">Counting down to the big day</p>
+            <CountdownTimer targetDate="2026-02-10" />
+          </div>
+        </div>
+        </AnimateOnScroll>
       </section>
 
       {/* Our Story */}
-      <section id="story" className="border-t border-accent/20 bg-section-alt/50 px-6 py-20">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-serif mb-6 text-4xl font-semibold text-foreground sm:text-5xl md:text-6xl">
+      <section id="story" className="border-t border-accent/20 bg-section-alt/50 px-6 py-20 pt-28 scroll-mt-20">
+        <AnimateOnScroll animation="fadeUp">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-serif mb-8 text-center text-4xl font-semibold text-foreground sm:text-5xl md:text-6xl">
             Our Story
           </h2>
-          <p className="font-sans text-lg leading-relaxed text-muted">
-            From the moment we met, we knew there was something special. Every laugh, every adventure,
-            and every quiet moment has led us here — ready to say &quot;I do&quot; and start our greatest
-            chapter together. Add your own story here!
-          </p>
+          <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-12">
+            <div className="w-full shrink-0 md:w-80">
+              <div className="aspect-[4/5] overflow-hidden rounded-xl shadow-lg">
+                <Image
+                  src="/d95f96e1-de65-466a-8edc-978e758a9497.jpg"
+                  alt="Saurabh & Disha"
+                  width={400}
+                  height={500}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <p className="font-sans text-lg leading-relaxed text-muted">
+                From the moment we met, we knew there was something special. Every laugh, every adventure,
+                and every quiet moment has led us here — ready to say &quot;I do&quot; and start our greatest
+                chapter together. Add your own story here!
+              </p>
+            </div>
+          </div>
         </div>
+        </AnimateOnScroll>
       </section>
 
       {/* Photo Gallery */}
-      <section id="gallery" className="bg-section-alt/30 px-6 py-20">
+      <section id="gallery" className="bg-section-alt/30 px-6 py-20 pt-28 scroll-mt-20">
+        <AnimateOnScroll animation="fadeUp">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-serif mb-2 text-center text-4xl font-semibold text-foreground sm:text-5xl md:text-6xl">
             Our Photos
@@ -132,26 +149,14 @@ export default function Home() {
             Memories we&apos;ve captured along the way
           </p>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div
-                key={i}
-                className="aspect-square overflow-hidden rounded-lg border-2 border-dashed border-accent/40 bg-background flex items-center justify-center"
-              >
-                <div className="flex flex-col items-center gap-2 text-muted">
-                  <svg className="h-12 w-12 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                  </svg>
-                  <span className="text-sm font-medium">Add photo {i}</span>
-                </div>
-              </div>
-            ))}
-          </div>
+          <PhotoGallerySlider />
         </div>
+        </AnimateOnScroll>
       </section>
 
       {/* Videos */}
-      <section id="videos" className="border-t border-accent/20 bg-section-alt/50 px-6 py-20">
+      <section id="videos" className="border-t border-accent/20 bg-section-alt/50 px-6 py-20 pt-28 scroll-mt-20">
+        <AnimateOnScroll animation="fadeUp">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-serif mb-2 text-center text-4xl font-semibold text-foreground sm:text-5xl md:text-6xl">
             Our Videos
@@ -160,34 +165,20 @@ export default function Home() {
             Moments in motion
           </p>
 
-          <div className="mx-auto mb-8 w-full max-w-5xl lg:max-w-6xl">
+          <div className="mx-auto w-full max-w-5xl lg:max-w-6xl">
             <p className="font-sans mb-4 text-center text-base font-medium uppercase tracking-wider text-accent">Pre-Wedding Teaser</p>
             <AutoplayVideo
               src="/SAURABH%20%26%20DISHA%20PRE%20WEDDING%20TEASER.mp4"
               className="w-full rounded-xl shadow-xl"
             />
           </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="aspect-video overflow-hidden rounded-lg border-2 border-dashed border-accent/40 bg-background flex items-center justify-center"
-              >
-                <div className="flex flex-col items-center gap-2 text-muted">
-                  <svg className="h-16 w-16 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
-                  </svg>
-                  <span className="text-sm font-medium">Add video {i}</span>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
+        </AnimateOnScroll>
       </section>
 
       {/* Wedding Details */}
-      <section id="wedding" className="px-6 py-20">
+      <section id="wedding" className="px-6 py-20 pt-28 scroll-mt-20">
+        <AnimateOnScroll animation="fadeUp">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-serif mb-2 text-center text-4xl font-semibold text-foreground sm:text-5xl md:text-6xl">
             Wedding Day
@@ -201,17 +192,10 @@ export default function Home() {
             <p className="font-serif text-3xl font-semibold text-foreground sm:text-4xl md:text-5xl">10th February 2026</p>
           </div>
 
-          <div className="mb-8">
-            <p className="font-sans mb-4 text-center text-lg font-medium uppercase tracking-wider text-accent">
-              Counting down to the big day
-            </p>
-            <CountdownTimer targetDate="2026-02-10" />
-          </div>
-
           <div className="mb-4 text-center">
             <p className="font-sans mb-3 text-lg font-medium uppercase tracking-wider text-accent">Venue</p>
             <p className="font-serif text-2xl font-semibold text-foreground sm:text-3xl md:text-4xl">Club Mahindra Resort</p>
-            <p className="font-sans mt-2 text-lg text-muted">NH-8, Lai, Udaipur, Rajasthan 313001</p>
+            <p className="font-sans mt-2 text-lg text-muted">NH-8, Near Indo American School, Udaipur, Rajasthan 313001</p>
             <a
               href="https://maps.google.com/?q=Club+Mahindra+Udaipur+Rajasthan"
               target="_blank"
@@ -240,16 +224,58 @@ export default function Home() {
             <p className="font-sans text-lg text-muted">Add more wedding details — schedule, dress code, RSVP info, etc.</p>
           </div>
         </div>
+        </AnimateOnScroll>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-accent/20 px-6 py-12">
-        <div className="flex justify-center rounded-lg bg-white/30 py-4 px-6">
-          <Image src="/logo.png" alt="Saurabh & Disha" width={160} height={80} className="h-14 w-auto object-contain" />
+      <footer className="border-t border-accent/20 bg-section-alt/30">
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <div className="flex flex-col gap-12 md:flex-row md:items-start md:justify-between md:gap-16">
+            {/* Left: Logo + Message */}
+            <div className="flex flex-col items-center md:items-start md:max-w-md">
+              <Image src="/logo.png" alt="Saurabh & Disha" width={140} height={70} className="h-16 w-auto object-contain opacity-90 mb-6" />
+              <p className="font-serif text-2xl text-foreground mb-2">
+                Saurabh & Disha
+              </p>
+              <p className="font-sans text-accent font-medium tracking-[0.2em] mb-6">#SaurabhKiDisha</p>
+              <h3 className="font-serif text-xl font-semibold text-foreground mb-4">
+                With Love & Gratitude
+              </h3>
+              <p className="font-sans text-muted leading-relaxed text-left">
+                Thank you for being part of our journey. Your presence in our lives means the world to us. We look forward to sharing our special day with you.
+              </p>
+              <p className="font-serif text-lg text-foreground mt-6">
+                — Saurabh & Disha
+              </p>
+              <p className="font-sans text-sm text-muted mt-4">
+                With love, together forever — February 10, 2026
+              </p>
+            </div>
+            {/* Right: Links + Product by */}
+            <div className="flex flex-col items-center md:items-end text-center md:text-right">
+              <nav className="flex flex-wrap justify-center md:justify-end gap-6 text-sm mb-8">
+                <a href="#hero" className="text-muted hover:text-accent transition-colors">Home</a>
+                <a href="#story" className="text-muted hover:text-accent transition-colors">Our Story</a>
+                <a href="#gallery" className="text-muted hover:text-accent transition-colors">Photos</a>
+                <a href="#videos" className="text-muted hover:text-accent transition-colors">Videos</a>
+                <a href="#wedding" className="text-muted hover:text-accent transition-colors">Wedding</a>
+              </nav>
+              <div className="rounded-xl border-2 border-accent/40 bg-accent/10 px-6 py-4">
+                <p className="font-sans text-sm font-semibold text-accent uppercase tracking-wider">
+                  A product by{" "}
+                  <a
+                    href="https://yashpokharna.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground font-bold hover:text-accent underline underline-offset-2 transition-colors"
+                  >
+                    Yash Pokharna
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <p className="font-sans mt-2 text-center text-sm text-muted">
-          With love, together forever
-        </p>
       </footer>
     </div>
   );
