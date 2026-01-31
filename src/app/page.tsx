@@ -80,7 +80,7 @@ export default function Home() {
           </div>
 
           <p className="font-sans mb-10 max-w-lg text-lg leading-relaxed text-muted">
-            Join us as we begin our forever together — a celebration of love, family, and new beginnings.
+            Join us as we begin our forever together - a celebration of love, family, and new beginnings.
           </p>
 
           <div className="flex flex-col items-center gap-6 sm:flex-row">
