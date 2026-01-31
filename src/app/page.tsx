@@ -10,8 +10,8 @@ export default function Home() {
       {/* Fixed nav */}
       <nav className="fixed left-0 right-0 top-0 z-50 border-b border-accent/10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
         <div className="mx-auto flex max-w-6xl items-center justify-center gap-8 px-6 py-3">
-          <a href="#hero" className="shrink-0 rounded-lg bg-white/30 px-2 py-1">
-            <Image src="/logo.png" alt="Saurabh & Disha" width={80} height={40} className="h-9 w-auto object-contain" />
+          <a href="#hero" className="shrink-0">
+            <Image src="/logo.png" alt="Saurabh & Disha" width={100} height={50} className="h-10 w-auto object-contain sm:h-11" />
           </a>
           <a href="#hero" className="text-base font-medium text-foreground hover:text-accent transition-colors">Home</a>
           <a href="#gallery" className="text-base font-medium text-foreground hover:text-accent transition-colors">Photos</a>
@@ -108,33 +108,128 @@ export default function Home() {
       </section>
 
       {/* Our Story */}
-      <section id="story" className="border-t border-accent/20 bg-section-alt/50 px-6 py-20 pt-28 scroll-mt-20">
+      <section id="story" className="relative border-t border-accent/20 bg-section-alt/50 px-6 py-20 pt-28 overflow-hidden scroll-mt-20">
+        {/* Background - matches site */}
+        <div className="absolute inset-0 -z-10" />
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-accent/5 rounded-full blur-[100px]" />
+        
         <AnimateOnScroll animation="fadeUp">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-serif mb-8 text-center text-4xl font-semibold text-foreground sm:text-5xl md:text-6xl">
-            Our Story
-          </h2>
-          <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-12">
-            <div className="w-full shrink-0 md:w-80">
-              <div className="aspect-[4/5] overflow-hidden rounded-xl shadow-lg">
-                <Image
-                  src="/M4_05730%20%281%29.JPG"
-                  alt="Saurabh & Disha"
-                  width={400}
-                  height={500}
-                  className="h-full w-full object-cover"
-                />
+          <div className="relative max-w-6xl mx-auto">
+            {/* Section header with decorative elements */}
+            <div className="text-center mb-20 space-y-6">
+              {/* Decorative top flourish */}
+              <div className="flex items-center justify-center gap-4">
+                <svg className="w-12 h-12 text-accent/40" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2L14 10L22 12L14 14L12 22L10 14L2 12L10 10Z" />
+                </svg>
+              </div>
+              
+              <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold text-foreground">
+                Our Story
+              </h2>
+              
+              <div className="flex items-center justify-center gap-3">
+                <div className="h-px w-16 bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+                <span className="font-sans text-accent text-sm tracking-widest">CHAPTER ONE</span>
+                <div className="h-px w-16 bg-gradient-to-l from-transparent via-accent/50 to-transparent" />
               </div>
             </div>
-            <div className="flex-1 text-center md:text-left">
-              <p className="font-sans text-lg leading-relaxed text-muted">
-                From the moment we met, we knew there was something special. Every laugh, every adventure,
-                and every quiet moment has led us here — ready to say &quot;I do&quot; and start our greatest
-                chapter together. Add your own story here!
-              </p>
+
+            {/* Main content with creative layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Image side with artistic frame */}
+              <div className="relative group">
+                {/* Decorative corner elements */}
+                <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-accent/30 rounded-tl-3xl" />
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 border-accent/30 rounded-br-3xl" />
+                
+                {/* Floating accent shape */}
+                <div className="absolute -top-8 -right-8 w-32 h-32 bg-accent/10 rounded-full blur-2xl group-hover:bg-accent/20 transition-all duration-500" />
+                
+                {/* Main image container */}
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-2xl">
+                  {/* Image overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10" />
+                  
+                  <Image
+                    src="/M4_05730%20%281%29.JPG"
+                    alt="Saurabh & Disha"
+                    width={500}
+                    height={625}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  
+                  {/* Decorative heart overlay */}
+                  <div className="absolute bottom-6 right-6 z-20 bg-section-alt/90 backdrop-blur-sm rounded-full p-3 shadow-lg border border-accent/20">
+                    <svg className="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Timeline dot connector (visible only on large screens) */}
+                <div className="hidden lg:block absolute top-1/2 -right-8 w-16 h-px bg-gradient-to-r from-accent/50 to-transparent">
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-accent rounded-full border-2 border-section-alt shadow-lg" />
+                </div>
+              </div>
+
+              {/* Story content side */}
+              <div className="space-y-8">
+                {/* Story text with elegant styling */}
+                <div className="relative">
+                  {/* Quote mark decoration */}
+                  <div className="absolute -top-6 -left-2 lg:-left-6 text-accent/20 text-7xl font-serif leading-none">
+                    "
+                  </div>
+                  
+                  <div className="relative space-y-6 pl-4 lg:pl-8">
+                    <p className="font-sans text-xl md:text-2xl leading-relaxed text-muted">
+                      From the moment we met, we knew there was something special. Every laugh, every adventure, and every quiet moment has led us here — ready to say &quot;I do&quot; and start our greatest chapter together.
+                    </p>
+                    
+                    <p className="font-sans text-lg leading-relaxed text-muted/90">
+                      Our journey has been filled with unforgettable memories, shared dreams, and endless love. This is just the beginning of our forever.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Elegant info cards */}
+                <div className="grid grid-cols-2 gap-4 pt-6">
+                  <div className="backdrop-blur-sm rounded-xl p-6 border border-accent/20 bg-background/40 text-center space-y-2">
+                    <p className="font-sans text-xs tracking-widest uppercase text-accent font-medium">Years Together</p>
+                    <p className="font-serif text-3xl text-foreground">∞</p>
+                  </div>
+                  <div className="backdrop-blur-sm rounded-xl p-6 border border-accent/20 bg-background/40 text-center space-y-2">
+                    <p className="font-sans text-xs tracking-widest uppercase text-accent font-medium">Memories Made</p>
+                    <p className="font-serif text-3xl text-foreground">Countless</p>
+                  </div>
+                </div>
+
+                {/* Signature-style ending */}
+                <div className="pt-8 space-y-4">
+                  <div className="h-px bg-gradient-to-r from-accent/30 to-transparent w-32" />
+                  <p className=" text-2xl text-accent">
+                    #SaurabhKiDisha
+                  </p>
+                  {/* <p className="font-sans text-sm text-muted tracking-wide">
+                    Saurabh &amp; Disha • Est. [Your Year]
+                  </p> */}
+                </div>
+              </div>
+            </div>
+
+            {/* Decorative bottom element */}
+            <div className="mt-20 flex justify-center">
+              <div className="flex items-center gap-3">
+                <div className="h-px w-20 bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+                <svg className="w-6 h-6 text-accent/40" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                </svg>
+                <div className="h-px w-20 bg-gradient-to-l from-transparent via-accent/40 to-transparent" />
+              </div>
             </div>
           </div>
-        </div>
         </AnimateOnScroll>
       </section>
 
@@ -246,15 +341,15 @@ export default function Home() {
             {/* Left: Large brand section */}
             <div className="lg:col-span-7 space-y-10">
               {/* Logo */}
-              <div className="relative inline-block">
+              <a href="#hero" className="inline-block">
                 <Image 
                   src="/logo.png" 
                   alt="Saurabh & Disha" 
-                  width={180} 
-                  height={90} 
-                  className="h-16 w-auto object-contain" 
+                  width={200} 
+                  height={100} 
+                  className="h-20 w-auto object-contain sm:h-24" 
                 />
-              </div>
+              </a>
 
               {/* Names with decorative line */}
               <div className="space-y-6">

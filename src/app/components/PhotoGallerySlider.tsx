@@ -5,17 +5,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
+/* Shuffled to avoid same-dress/session photos appearing together */
 const GALLERY_IMAGES = [
   "/10021ca6-27b9-4841-a269-ec8aac541671.jpg",
-  "/d95f96e1-de65-466a-8edc-978e758a9497.jpg",
-  "/M4_05906.jpeg",
-  "/M4_06100.JPG",
-  "/M4_06122.JPG",
   "/M4_06232.JPG",
-  "/M4_06363.JPG",
-  "/M4_06636.jpeg",
+  "/d95f96e1-de65-466a-8edc-978e758a9497.jpg",
   "/M4_06692.JPG",
+  "/M4_05906.jpeg",
   "/M4_06868.JPG",
+  "/M4_06100.JPG",
+  "/M4_06363.JPG",
+  "/M4_06122.JPG",
+  "/M4_06636.jpeg",
 ];
 
 export default function PhotoGallerySlider() {

@@ -49,27 +49,23 @@
   animation-delay: -4s;
 }
 
-@keyframes loader-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.9; transform: scale(1.03); }
+
+@keyframes loader-dot-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1); }
 }
 
-@keyframes loader-fade-in {
-  from { opacity: 0; transform: translateY(12px) scale(0.98); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+
+.loader-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: loader-dot-pulse 1.2s ease-in-out infinite;
 }
 
-.animate-loader-pulse {
-  animation: loader-pulse 2.5s ease-in-out infinite;
-}
-
-.animate-loader-fade-in {
-  animation: loader-fade-in 0.8s ease-out forwards;
-}
-
-.loader-progress-bar {
-  transition: width 0.25s ease-out;
-}
+.loader-dot-delay-1 { animation-delay: 0.2s; }
+.loader-dot-delay-2 { animation-delay: 0.4s; }
 
 html {
   scroll-behavior: smooth;

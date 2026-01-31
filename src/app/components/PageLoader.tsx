@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 const MIN_LOAD_TIME_MS = 1400;
 const FADE_OUT_MS = 500;
@@ -9,21 +8,11 @@ const FADE_OUT_MS = 500;
 export default function PageLoader({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
   const [isExiting, setIsExiting] = useState(false);
-  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const start = Date.now();
-    const duration = MIN_LOAD_TIME_MS;
-
-    const interval = setInterval(() => {
-      const elapsed = Date.now() - start;
-      const p = Math.min(100, (elapsed / duration) * 95);
-      setProgress(p);
-    }, 50);
 
     const handleLoad = () => {
-      setProgress(100);
-      clearInterval(interval);
       const elapsed = Date.now() - start;
       const remaining = Math.max(0, MIN_LOAD_TIME_MS - elapsed);
       setTimeout(() => {
@@ -36,10 +25,7 @@ export default function PageLoader({ children }: { children: React.ReactNode }) 
       handleLoad();
     } else {
       window.addEventListener("load", handleLoad);
-      return () => {
-        window.removeEventListener("load", handleLoad);
-        clearInterval(interval);
-      };
+      return () => window.removeEventListener("load", handleLoad);
     }
   }, []);
 
@@ -48,49 +34,34 @@ export default function PageLoader({ children }: { children: React.ReactNode }) 
   }
 
   return (
-    <>
+    <div
+      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center px-6 bg-background transition-opacity duration-500 ease-out ${
+        isExiting ? "opacity-0" : "opacity-100"
+      }`}
+      aria-hidden="true"
+    >
+      {/* Logo - centered, large */}
       <div
-        className={`fixed inset-0 z-[100] flex flex-col items-center justify-center transition-opacity duration-500 ease-out ${
-          isExiting ? "opacity-0" : "opacity-100"
-        }`}
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 40%, var(--section-alt) 0%, var(--background) 70%)",
-        }}
-        aria-hidden="true"
-      >
-        <div className="flex flex-col items-center gap-6 px-6">
-          <div className="animate-loader-pulse animate-loader-fade-in">
-            <Image
-              src="/logo.png"
-              alt="Saurabh & Disha"
-              width={220}
-              height={110}
-              className="h-20 w-auto object-contain opacity-95 sm:h-28"
-              priority
-            />
-          </div>
-          <p
-            className="animate-loader-fade-in font-serif text-2xl text-foreground/95 sm:text-3xl"
-            style={{ animationDelay: "0.15s", animationFillMode: "backwards" }}
-          >
-            Saurabh & Disha
-          </p>
-          <p
-            className="animate-loader-fade-in text-sm tracking-[0.35em] text-muted"
-            style={{ animationDelay: "0.3s", animationFillMode: "backwards" }}
-          >
-            February 10, 2026
-          </p>
-        </div>
+        className="relative mx-auto mb-10 h-28 w-72 shrink-0 bg-contain bg-center bg-no-repeat sm:mb-12 sm:h-36 sm:w-96 md:h-40 md:w-[420px]"
+        style={{ backgroundImage: "url('/logo.png')" }}
+        role="img"
+        aria-label="Saurabh & Disha"
+      />
 
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] overflow-hidden bg-accent/10">
-          <div
-            className="loader-progress-bar h-full bg-accent"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
+      {/* Names */}
+      <p className="text-center font-serif text-4xl font-semibold tracking-tight text-foreground sm:text-5xl md:text-6xl">
+        Saurabh & Disha
+      </p>
+      <p className="mt-3 text-center font-sans text-sm tracking-[0.4em] text-muted sm:text-base">
+        February 10, 2026
+      </p>
+
+      {/* Loading dots */}
+      <div className="mt-10 flex items-center justify-center gap-3 sm:mt-12">
+        <span className="loader-dot" />
+        <span className="loader-dot loader-dot-delay-1" />
+        <span className="loader-dot loader-dot-delay-2" />
       </div>
-    </>
+    </div>
   );
 }
