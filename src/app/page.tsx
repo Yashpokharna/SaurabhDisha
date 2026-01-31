@@ -118,7 +118,7 @@ export default function Home() {
             <div className="w-full shrink-0 md:w-80">
               <div className="aspect-[4/5] overflow-hidden rounded-xl shadow-lg">
                 <Image
-                  src="/d95f96e1-de65-466a-8edc-978e758a9497.jpg"
+                  src="/M4_05730%20%281%29.JPG"
                   alt="Saurabh & Disha"
                   width={400}
                   height={500}
@@ -219,59 +219,124 @@ export default function Home() {
               className="block w-full"
             />
           </div>
-
-          <div className="mt-12 rounded-xl border-2 border-dashed border-accent/40 bg-section-alt/50 p-12 text-center">
-            <p className="font-sans text-lg text-muted">Add more wedding details — schedule, dress code, RSVP info, etc.</p>
-          </div>
         </div>
         </AnimateOnScroll>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-accent/20 bg-section-alt/30">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="flex flex-col gap-12 md:flex-row md:items-start md:justify-between md:gap-16">
-            {/* Left: Logo + Message */}
-            <div className="flex flex-col items-center md:items-start md:max-w-md">
-              <Image src="/logo.png" alt="Saurabh & Disha" width={140} height={70} className="h-16 w-auto object-contain opacity-90 mb-6" />
-              <p className="font-serif text-2xl text-foreground mb-2">
-                Saurabh & Disha
-              </p>
-              <p className="font-sans text-accent font-medium tracking-[0.2em] mb-6">#SaurabhKiDisha</p>
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-4">
-                With Love & Gratitude
-              </h3>
-              <p className="font-sans text-muted leading-relaxed text-left">
-                Thank you for being part of our journey. Your presence in our lives means the world to us. We look forward to sharing our special day with you.
-              </p>
-              <p className="font-serif text-lg text-foreground mt-6">
-                — Saurabh & Disha
-              </p>
-              <p className="font-sans text-sm text-muted mt-4">
-                With love, together forever — February 10, 2026
-              </p>
+      {/* Footer - matches site dark theme */}
+      <footer className="relative overflow-hidden border-t border-accent/20 bg-section-alt">
+        {/* Floating decorative shapes */}
+        <div className="absolute bottom-32 left-32 w-24 h-24 bg-accent/10 rounded-full blur-2xl" />
+        <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-accent/40 rounded-full" />
+        <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-accent/40 rounded-full" />
+        {/* Circle with couple photo */}
+        <div className="absolute top-20 right-20 w-40 h-40 overflow-hidden rounded-full border-2 border-accent/30 shadow-xl">
+          <Image
+            src="/M4_05906.jpeg"
+            alt="Saurabh & Disha"
+            width={160}
+            height={160}
+            className="h-full w-full object-cover"
+          />
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6 py-24">
+          {/* Main asymmetric content */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+            {/* Left: Large brand section */}
+            <div className="lg:col-span-7 space-y-10">
+              {/* Logo */}
+              <div className="relative inline-block">
+                <Image 
+                  src="/logo.png" 
+                  alt="Saurabh & Disha" 
+                  width={180} 
+                  height={90} 
+                  className="h-16 w-auto object-contain" 
+                />
+              </div>
+
+              {/* Names with decorative line */}
+              <div className="space-y-6">
+                <div className="flex items-end gap-4">
+                  <div className="space-y-2">
+                    <h3 className="font-display text-5xl lg:text-6xl text-foreground leading-none">
+                      Saurabh
+                    </h3>
+                    <div className="flex items-center gap-3">
+                      <div className="h-0.5 w-12 bg-accent" />
+                      <span className="font-display text-3xl text-accent">&</span>
+                      <div className="h-0.5 w-12 bg-accent" />
+                    </div>
+                    <h3 className="font-display text-5xl lg:text-6xl text-foreground leading-none">
+                      Disha
+                    </h3>
+                  </div>
+                </div>
+                
+                <p className="text-accent text-base tracking-[0.25em] font-medium">
+                  #SaurabhKiDisha
+                </p>
+              </div>
+
+              {/* Message in artistic box */}
+              <div className="relative max-w-lg">
+                <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-accent/40" />
+                <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-accent/40" />
+                <div className="px-8 py-10 space-y-4">
+                  <p className="text-muted leading-relaxed">
+                    Thank you for being part of our journey. Your love and blessings mean everything to us as we step into this beautiful new chapter together.
+                  </p>
+                  <div className="flex items-center gap-3 pt-4">
+                    <div className="flex-1 h-px bg-gradient-to-r from-accent/50 to-transparent" />
+                    <p className="font-display text-lg text-foreground italic">With gratitude</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            {/* Right: Links + Product by */}
-            <div className="flex flex-col items-center md:items-end text-center md:text-right">
-              <nav className="flex flex-wrap justify-center md:justify-end gap-6 text-sm mb-8">
-                <a href="#hero" className="text-muted hover:text-accent transition-colors">Home</a>
-                <a href="#story" className="text-muted hover:text-accent transition-colors">Our Story</a>
-                <a href="#gallery" className="text-muted hover:text-accent transition-colors">Photos</a>
-                <a href="#videos" className="text-muted hover:text-accent transition-colors">Videos</a>
-                <a href="#wedding" className="text-muted hover:text-accent transition-colors">Wedding</a>
-              </nav>
-              <div className="rounded-xl border-2 border-accent/40 bg-accent/10 px-6 py-4">
-                <p className="font-sans text-sm font-semibold text-accent uppercase tracking-wider">
-                  A product by{" "}
+
+            {/* Right: Compact links and info */}
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-12">
+              {/* Navigation in columns */}
+              <div className="space-y-6">
+                <h4 className="text-xs tracking-[0.3em] uppercase text-accent font-semibold">
+                  Quick Links
+                </h4>
+                <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+                  <a href="#hero" className="footer-link">Home</a>
+                  <a href="#story" className="footer-link">Our Story</a>
+                  <a href="#gallery" className="footer-link">Photos</a>
+                  <a href="#videos" className="footer-link">Videos</a>
+                  <a href="#wedding" className="footer-link">Wedding</a>
+                </div>
+              </div>
+
+              {/* Event info card - Save the Date */}
+              <div className="rounded-2xl p-6 border border-accent backdrop-blur-sm space-y-3 shadow-sm">
+                <div className="flex items-center gap-2 text-accent">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                  </svg>
+                  <span className="text-xs tracking-widest uppercase font-medium">Save the Date</span>
+                </div>
+                <p className="font-display text-2xl text-foreground">February 10, 2026</p>
+                <p className="text-sm text-muted">Club Mahindra Resort, Udaipur</p>
+              </div>
+
+              {/* Creator signature style */}
+              <div className="space-y-3">
+                <div className="h-px bg-gradient-to-r from-accent/30 to-transparent" />
+                <div className="flex items-baseline gap-2">
+                  <span className="text-xs text-muted">Designed by</span>
                   <a
                     href="https://yashpokharna.in/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-foreground font-bold hover:text-accent underline underline-offset-2 transition-colors"
+                    className="font-display text-lg text-foreground hover:text-accent transition-colors underline decoration-accent/30 decoration-2 underline-offset-4 hover:decoration-accent"
                   >
                     Yash Pokharna
                   </a>
-                </p>
+                </div>
               </div>
             </div>
           </div>

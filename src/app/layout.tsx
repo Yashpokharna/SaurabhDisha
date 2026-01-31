@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
+import PageLoader from "./components/PageLoader";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-display",
@@ -29,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${cormorant.variable} ${montserrat.variable} antialiased font-sans`}
       >
-        {children}
+        <PageLoader>{children}</PageLoader>
       </body>
     </html>
   );

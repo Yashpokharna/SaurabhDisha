@@ -7,6 +7,14 @@
   --accent-light: #4a4239;
   --muted: #9a9592;
   --section-alt: #252220;
+  /* Footer palette */
+  --ivory: #faf8f5;
+  --blush: #f5e6e8;
+  --champagne: #f7e7ce;
+  --rose-gold: #b76e79;
+  --charcoal: #2d2a26;
+  --terracotta: #c27b5c;
+  --warm-gray: #6b6560;
 }
 
 @theme inline {
@@ -16,6 +24,13 @@
   --color-accent-light: var(--accent-light);
   --color-muted: var(--muted);
   --color-section-alt: var(--section-alt);
+  --color-ivory: var(--ivory);
+  --color-blush: var(--blush);
+  --color-champagne: var(--champagne);
+  --color-rose-gold: var(--rose-gold);
+  --color-charcoal: var(--charcoal);
+  --color-terracotta: var(--terracotta);
+  --color-warm-gray: var(--warm-gray);
   --font-sans: var(--font-body);
   --font-serif: var(--font-display);
 }
@@ -34,6 +49,28 @@
   animation-delay: -4s;
 }
 
+@keyframes loader-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.03); }
+}
+
+@keyframes loader-fade-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-loader-pulse {
+  animation: loader-pulse 2.5s ease-in-out infinite;
+}
+
+.animate-loader-fade-in {
+  animation: loader-fade-in 0.8s ease-out forwards;
+}
+
+.loader-progress-bar {
+  transition: width 0.25s ease-out;
+}
+
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
@@ -43,4 +80,12 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* Footer quick links - hover underline with color */
+.footer-link {
+  @apply text-foreground transition-colors duration-200;
+  @apply hover:text-accent;
+  @apply underline-offset-4 decoration-2;
+  @apply no-underline hover:underline hover:decoration-accent;
 }
