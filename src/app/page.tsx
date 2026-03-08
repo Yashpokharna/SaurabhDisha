@@ -260,13 +260,13 @@ export default function Home() {
             Moments in motion
           </p>
 
-          <div className="mx-auto w-full max-w-5xl lg:max-w-6xl">
+          {/* <div className="mx-auto w-full max-w-5xl lg:max-w-6xl">
             <p className="font-sans mb-4 text-center text-base font-medium uppercase tracking-wider text-accent">Pre-Wedding Teaser</p>
             <AutoplayVideo
               src="/SAURABH%20%26%20DISHA%20PRE%20WEDDING%20TEASER.mp4"
               className="w-full rounded-xl shadow-xl"
             />
-          </div>
+          </div> */}
         </div>
         </AnimateOnScroll>
       </section>
